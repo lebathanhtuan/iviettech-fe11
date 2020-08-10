@@ -1,0 +1,9 @@
+.footer {
+    background-color: currentcolor;
+    height: 5vh;
+}
+
+.footer h3 {
+    color: white;
+    text-align: center;
+}
