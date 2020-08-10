@@ -1,0 +1,8 @@
+.item{
+   border: 1px solid black;
+   margin: 10px auto;
+}
+.item-active{
+   border: 1px solid red;
+   margin: 10px auto;
+}
