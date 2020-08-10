@@ -1,0 +1,60 @@
+header{
+   font-size: 26px;
+   height: 70px;
+   line-height: 70px;
+   background: black;
+   color: white;
+   justify-content: center;
+   text-align: center;
+}
+
+.sidebar{
+   font-size: 26px;
+   height: 613px;
+   line-height: 613px;
+   background: rgb(80, 78, 78);
+   color: white;
+   justify-content: center;
+   text-align: center;
+}
+
+/* h3{
+   font-weight: 800;
+   margin-left: 50px;
+}
+.item{
+   margin-left: 50px;
+   margin-right: 50px;
+   font-size: 20px;
+   padding-left: 10px;
+   display: block;
+   border: 1px solid black;
+
+} */
+
+.main1{
+   float: left;
+   height: 613px;
+   width: 30%;
+}
+/* .main2{
+   float: left;
+   height: 613px;
+   width: 70%;
+} */
+
+footer{
+   clear: both;
+   font-size: 26px;
+   height: 70px;
+   line-height: 70px;
+   background: rgb(138, 135, 135);
+   color: white;
+   justify-content: center;
+   text-align: center;
+}
+
+.container{
+   float: left;
+   width: 70%;
+}
