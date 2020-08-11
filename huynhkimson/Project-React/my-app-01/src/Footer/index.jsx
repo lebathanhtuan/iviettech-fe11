@@ -3,9 +3,9 @@ import './style.css';
 function Footer(){
     return (
         <div className= "footer">
-            <div className= "col-md-12">
-                <h2>Footer</h2>
-            </div>
+            <p >Follow us : </p>
+            <p >COPYRIGHT&copy;2020</p>
+            <p >Design by : HUYNH KIM SON</p>
         </div>
     );
 }
