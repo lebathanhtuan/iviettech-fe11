@@ -5,5 +5,5 @@
     background-color: bisque; 
 }
 .main{
-    min-height: calc(100vh - 128px);
+    min-height: calc(100vh - 112px);
 }
