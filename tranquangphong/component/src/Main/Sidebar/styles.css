@@ -1,10 +1,5 @@
 .container-sidebar {
   width: 300px;
-  min-height: calc(100vh - 112px);
-  background-color: #AAA;
-  color: #333;
-}
-
-.sidebar {
-  padding: 16px 0 0 16px;
+  min-height: calc(100% - 106px);
+  background-color: #aaa;
 }
