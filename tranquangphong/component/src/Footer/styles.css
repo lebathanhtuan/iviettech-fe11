@@ -1,11 +1,8 @@
-.container-footer {
+.footer {
   display: flex;
   align-items: center;
-  height: 56px;
-  background-color: #666;
-  color: #FFF;
-}
-
-.footer {
   padding-left: 16px;
+  height: 56px;
+  background-color: #274b69;
+  color: #FFF;
 }

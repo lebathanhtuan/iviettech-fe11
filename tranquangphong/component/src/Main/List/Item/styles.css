@@ -1,9 +1,7 @@
 .item {
-  margin: 0 16px;
-  /* height: 300px; */
-  border: 1px solid #666;
+  border: 1px solid #202022;
 }
 
 .item-active {
-  border: 1px solid red;
+  border: 1px solid orange;
 }
