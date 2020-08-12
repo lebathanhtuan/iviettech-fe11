@@ -1,0 +1,22 @@
+.items{
+    border: 1px solid #00334d;
+    width: 50%;
+    padding: 5px;
+    margin: 10px auto;
+    background-color: antiquewhite;
+    font-weight: 500;
+}
+
+.menu:hover{
+    background-color: greenyellow;
+    cursor: pointer;
+}
+
+.items-Class{
+    border: 2px solid red;
+}
+
+.card{
+    border: 1px solid;
+}
+
