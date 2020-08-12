@@ -1,0 +1,6 @@
+.item{
+    border: 1px solid;
+}
+.item-active{
+    border: 2px solid red;
+}

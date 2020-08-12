@@ -1,0 +1,14 @@
+.main {
+    height: 85vh;
+}
+.container-fluid{
+    height: 100%;
+}
+.sider {
+    background-color: grey;
+    height: 85vh;
+}
+.item{
+    border: 1px solid black;
+    margin-bottom: 14px;
+}

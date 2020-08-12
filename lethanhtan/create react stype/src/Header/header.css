@@ -1,0 +1,9 @@
+.header{
+    background-color: black;
+    height: 10vh;
+}
+.header h3{
+    color: white;
+    padding-top: 13px;
+    padding-left: 17px;
+}
