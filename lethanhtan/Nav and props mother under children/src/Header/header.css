@@ -1,0 +1,33 @@
+.header{
+    background-color: black;
+    height: 10vh;
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+.header h3{
+    color: white;
+        
+    padding-left: 17px;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+.header ul{
+    display: flex;
+    padding-top: 13px;
+    padding-left: 17px;
+    justify-content: space-between;
+    align-items: center;
+    
+}
+.header ul li{
+    color: white;
+    margin-right:57px;
+}
+.header h4{
+    color: white;
+    padding-top: 13px;
+    padding-left: 17px;
+    margin-top: auto;
+    margin-bottom: auto;
+}

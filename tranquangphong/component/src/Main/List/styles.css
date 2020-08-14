@@ -1,11 +1,10 @@
 .list {
   width: calc(100% - 300px);
-  min-height: calc(100% - 112px);
+  min-height: calc(100% - 106px);
 }
 
 .title {
-  margin: 16px 16px;
+  margin: 16px;
   font-weight: bold;
-  color: #666;
+  color: #202022;
 }
-

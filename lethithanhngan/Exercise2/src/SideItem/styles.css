@@ -1,0 +1,10 @@
+.item-active{
+   width: 100%;
+}
+.item-active :hover{
+    background-color: white;
+}
+.item{
+    border: 1px solid black;
+    margin: 10px auto;
+ }

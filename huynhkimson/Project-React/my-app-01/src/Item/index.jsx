@@ -2,7 +2,7 @@ import React from 'react';
 import './style.css';
 
 function Item(props){
-    const { color, active } = props;
+    const { color, name, active}= props;
     const itemColorStyle = {
         height: 200,
         backgroundColor: color
@@ -22,7 +22,7 @@ function Item(props){
     <div className="col-md-3">
         <div className={active ? "item item-active" : "item "}>
                 <div style={itemColorStyle}></div>
-                <div>{color}</div>
+                <div>{name}</div>
         </div>
     </div>
     );
