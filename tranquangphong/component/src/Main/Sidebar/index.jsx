@@ -3,12 +3,32 @@ import SidebarItem from './SidebarItem';
 import './styles.css';
 
 function Sidebar() {
+  const sidebarData = [
+    { 
+      title: 'Home'
+    },
+    { 
+      title: 'About us'
+    },
+    { 
+      title: 'Products'
+    },
+    { 
+      title: 'Contact'
+    }
+  ];
+
+  const sidebarMap = () => {
+    return sidebarData.map((item, index) => {
+      return (
+        <SidebarItem key={index} itemName={item.title} />
+      );
+    });
+  }
+  
   return (
     <div className="container-sidebar">
-      <SidebarItem itemName="Home" />
-      <SidebarItem itemName="About us" />
-      <SidebarItem itemName="Products" />
-      <SidebarItem itemName="Contact" />
+      {sidebarMap()}
     </div>
   );
 }

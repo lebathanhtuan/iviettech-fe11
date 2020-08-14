@@ -1,18 +1,46 @@
 import React from 'react';
 import Item from './Item'
 import './styles.css';
+import { render } from '@testing-library/react';
 
 function List(props) {
-  const { dataList } = props
+  const { dataList } = props;
+
+  // const testMap = () => {
+  //   const arr = [{key: 'a'}, {key: 'b'}, {key: 'c'}, {key: 'd'}];
+  //   const result = arr.map((item, index) => {
+  //   console.log("testMap -> item", item)
+  //     return item.key;
+  //   })
+  //   console.log("testMap -> result", result)
+  // }
+
+  // const testMap2 = () => {
+  //   const arr = ['a', 'b', 'c', 'd'];
+  //   const result = arr.map((item, index) => {
+  //   console.log("testMap -> item", item)
+  //     return { key: item };
+  //   })
+  //   console.log("testMap -> result", result)
+  // }
+
+  // testMap();
+  // testMap2();
+
+  const renderItems = () => {
+    return dataList.map((item, index) => {
+      return (
+        <Item key={index} name={item.name} color={item.color} active={index === 0} />
+      );
+    });
+  }
+
 
   return (
     <div className="list">
       <p className="title">List user</p>
       <div className="row px-3">
-        <Item name={dataList[0].name} color={dataList[0].color} active >This is children</Item>
-        <Item name={dataList[1].name} color={dataList[1].color} />
-        <Item name={dataList[2].name} color={dataList[2].color} />
-        <Item name={dataList[3].name} color={dataList[3].color} />
+        {renderItems()}
       </div>
     </div>
   );
