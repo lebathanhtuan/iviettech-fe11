@@ -1,0 +1,11 @@
+.list {
+  width: calc(100% - 300px);
+  min-height: calc(100% - 106px);
+}
+
+.title {
+  margin: 16px;
+  font-weight: bold;
+  font-size: 20px;
+  color: #202022;
+}

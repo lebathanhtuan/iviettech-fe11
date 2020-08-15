@@ -1,0 +1,37 @@
+.item {
+  border: 1px solid #DDD;
+  box-shadow: 3px 6px 10px rgba(0, 0, 0, 0.1);
+}
+
+.container-image {
+  display: flex;
+  margin-left: 16px;
+  margin-bottom: 8px;
+}
+
+.image {
+  margin-right: 4px;
+  width: 48px;
+  border-radius: 50%;
+}
+
+.container-remainder {
+  width: 48px;
+  height: 48px;
+}
+
+.remainder {
+  position: absolute;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background-color: orange;
+}
+
+.number {
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
