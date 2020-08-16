@@ -1,0 +1,21 @@
+.main{
+    display: flex;
+    min-height: calc(100vh - 100px);
+}
+.sidebar{
+    background-color: darkslategrey;
+    min-height: 400px;
+    width: 300px;
+}
+
+.item {
+    border: 1px solid gray;
+}
+.item-active{
+    border: 1px solid green;
+}
+.side:hover{
+    color: aqua;
+    display: block;
+    background-color: brown;
+}

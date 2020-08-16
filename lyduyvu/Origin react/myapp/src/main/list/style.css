@@ -1,0 +1,8 @@
+.Iteam li{
+    list-style-type: none;
+    border: 1px solid;
+}
+
+.list-container {
+    width: calc(100% - 300px);
+}
