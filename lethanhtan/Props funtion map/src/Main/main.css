@@ -1,0 +1,10 @@
+.main {
+    min-height: 85vh;
+}
+.sider {
+    background-color: grey;
+}
+.item{
+    border: 1px solid black;
+    margin-bottom: 14px;
+}
