@@ -1,0 +1,11 @@
+.group{
+    width: 70%;
+    min-height: 50px;
+    border: 1px solid;
+    display: block;
+    margin: 10px auto;
+}
+.name{
+    background-color: goldenrod;
+    font-weight: 500;
+}

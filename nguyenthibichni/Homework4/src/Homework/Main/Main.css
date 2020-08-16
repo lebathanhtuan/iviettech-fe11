@@ -1,0 +1,18 @@
+.main{
+    width: 100%;
+    height: calc(100vh - 110px);
+}
+
+.main .sidebar{
+    float: left;
+    width: 35%;
+    background-color: #999966;
+    height: 100%;
+}
+
+.main .list{
+    background-color: white;
+    width: 60%;
+    float: left;
+    height: 100%;
+}

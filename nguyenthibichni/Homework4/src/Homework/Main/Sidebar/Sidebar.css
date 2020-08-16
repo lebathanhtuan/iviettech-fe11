@@ -1,0 +1,7 @@
+.sidebar-container{
+    float: left;
+    width: 25%;
+    height: 100%;
+    min-height: inherit;
+    background-color:#b36b00;
+}

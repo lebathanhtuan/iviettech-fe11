@@ -1,0 +1,26 @@
+.group{
+    float: left;
+    width: 300px;
+    height: 200px;
+    border: 1px solid red;
+    box-shadow: 3px 6px 10px;
+}
+.name{
+    height: 40px;
+    background-color: goldenrod;
+    font-weight: 500;
+}
+.img{
+    height: 110px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+.description{
+    height: 40px;
+    background-color: silver;
+}
+.group-active{
+    background-color: aqua;
+    border: 2px solid black;
+}
