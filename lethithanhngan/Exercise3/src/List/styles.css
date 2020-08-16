@@ -1,0 +1,8 @@
+.list-container {
+    width: calc(100% - 500px);
+    height: 600px;
+    float: right;
+    background-color: antiquewhite;
+    font-weight: bolder;
+    
+}
