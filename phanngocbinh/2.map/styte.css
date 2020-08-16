@@ -1,0 +1,102 @@
+#root{
+   overflow-x: hidden;
+    overflow-y: scroll;
+    touch-action: pan-y pinch-zoom;
+    position: relative;
+}
+/* Header */
+.header{
+   position: relative;
+   height: 70px;
+   line-height: 70px;
+   background:rgb(54, 54, 54);
+   display: flex;
+   color: #ddd;
+   justify-content: space-between;
+   font-size: 20px;
+   font-weight: 600;
+   font-style: italic;
+   padding: 0px 20px;
+}
+.header .menu{
+   position: absolute;
+   display: flex;
+   top: 50%; 
+   left: 50%;
+   transform: translate(-50%, -50%);
+}
+.header .menu .menu-items{
+   display: flex;
+   justify-content: center;
+   padding-left: 10px;
+   color: #ddd;
+}
+/* sidebar */
+.sidebar-container{
+   width: 30%;
+   padding-right: 15px;
+   padding-left: 15px;
+   margin-right: auto;
+   margin-left: auto;
+   font-size: 20px;
+   min-height: 613px;
+   background: rgb(116, 115, 115);
+   color: #ddd;
+   float: left;
+}
+/* sideberItem */
+.sidebarItem-list{
+   padding: 0px;
+}
+.sidebarItem-list .list_1{
+   position: relative;
+   padding-left: 18px;
+   font-weight: 300;
+   color: #ddd;
+}
+.sidebarItem-list .list_1:hover{
+   background: rgba(66, 59, 59, 0.808);
+}
+/* List */
+.list-container{
+   padding-right: 15px;
+   padding-left: 15px;
+   margin-right: auto;
+   margin-left: auto;
+   width: 70%;
+   float: left;
+}
+.item-active{
+   margin: 15px;
+   border: 1px solid red;
+}
+.colorBorder{
+   margin: 15px;
+   border: 1px solid black;
+}
+/* border table */
+.table-bordered{
+   border: 3px solid rgb(253, 19, 39);
+}
+.thead-dark{
+   background: rgb(10, 204, 253);
+}
+/* group */
+.group-shadow{
+   box-shadow: 0px 10px 1px #ddd, 0 10px 20px #ccc;
+}
+/* footer */
+footer{
+   clear: both;
+   font-size: 26px;
+   height: 70px;
+   line-height: 70px;
+   background: rgb(54, 54, 54);
+   color: #ddd;
+   font-size: 20px;
+   font-weight: 600;
+   font-style: italic;
+   justify-content: center;
+   text-align: center;
+}
+
