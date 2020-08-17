@@ -1,4 +1,6 @@
 .sidebar-item {
+  width: 300px;
+  border-style: hidden;
   color: white;
   padding: 12px 28px;
 }
@@ -6,4 +8,11 @@
 .sidebar-item:hover {
   background-color: #274b69;
   cursor: pointer;
+  border-right: 6px solid orange;
 }
+
+.sidebar-active {
+  background-color: #274b69;
+  border-right: 6px solid orange;
+}
+
