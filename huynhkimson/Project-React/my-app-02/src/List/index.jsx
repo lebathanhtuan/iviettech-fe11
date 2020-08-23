@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './style.css';
 import Group from '../Group/index';
 import GroupList from '../GroupList/index';
 
 function List(props) {
     const { dataList, dataGroupList } = props;
+    const [grouplistActiveIndex, setGrouplistActiveIndex] = useState(0);
+
     const listStyle = {
         padding: 16
     }
@@ -19,7 +21,14 @@ function List(props) {
     const renderDataGroupList = () => {
         return dataGroupList.map((grouplist, index) => {
             return (
-                <GroupList key={index} name={grouplist.name} description={grouplist.description} members={grouplist.members} />
+                <GroupList key={index}
+                grouplistIndex={index}
+                activeIndex={grouplistActiveIndex}
+                setGrouplistActiveIndex={setGrouplistActiveIndex}
+                name={grouplist.name} 
+                description={grouplist.description} 
+                members={grouplist.members}
+                />
             );
         });
     };

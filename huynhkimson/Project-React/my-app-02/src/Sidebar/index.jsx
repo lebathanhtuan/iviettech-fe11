@@ -1,13 +1,21 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './style.css';
 import SidebarItem from '../SidebarItem/index';
 
 function Sidebar(props) {
     const { dataSidebar } = props;
+    const [sidebarActiveIndex, setSidebarActiveIndex] = useState(0);
+
     const renderSidebarItem = () => {
         return dataSidebar.map((item, index) => {
             return (
-                <SidebarItem key={index} menuItemSidebar={item.menuItemSidebar} />
+                <SidebarItem
+                    key={index}
+                    sidebarIndex={index}
+                    activeIndex={sidebarActiveIndex}
+                    setSidebarActiveIndex={setSidebarActiveIndex}
+                    menuItemSidebar={item.menuItemSidebar}
+                />
             );
         });
     };
