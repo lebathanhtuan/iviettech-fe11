@@ -48,6 +48,7 @@ function Main() {
 
     const dataGroupList = [
         {
+            id: 1,
             name: 'Group 1',
             description: 'VN eyes more fruit exports to Japan.',
             members: [
@@ -74,6 +75,7 @@ function Main() {
             ],
         },
         {
+            id: 2,
             name: 'Group 2',
             description: 'VN eyes more fruit exports to Japan.',
             members: [
@@ -92,6 +94,7 @@ function Main() {
             ],
         },
         {
+            id: 3,
             name: 'Group 3',
             description: 'VN eyes more fruit exports to Japan.',
             members: [
@@ -119,6 +122,83 @@ function Main() {
                     name: 'Huỳnh Kim B',
                     image: 'https://via.placeholder.com/100',
                 },
+            ],
+        },
+        {
+            id: 4,
+            name: 'Group 4',
+            description: 'VN eyes more fruit exports to Japan.',
+            members: [
+                {
+                    name: 'Huỳnh Kim Sơn',
+                    image: 'https://via.placeholder.com/100',
+                },
+                {
+                    name: 'Huỳnh Kim A',
+                    image: 'https://via.placeholder.com/100',
+                },
+                {
+                    name: 'Huỳnh Kim B',
+                    image: 'https://via.placeholder.com/100',
+                }
+            ],
+        },
+        {
+            id: 5,
+            name: 'Group 5',
+            description: 'VN eyes more fruit exports to Japan.',
+            members: [
+                {
+                    name: 'Huỳnh Kim Sơn',
+                    image: 'https://via.placeholder.com/100',
+                },
+                {
+                    name: 'Huỳnh Kim A',
+                    image: 'https://via.placeholder.com/100',
+                },
+                {
+                    name: 'Huỳnh Kim B',
+                    image: 'https://via.placeholder.com/100',
+                },
+                {
+                    name: 'Huỳnh Kim B',
+                    image: 'https://via.placeholder.com/100',
+                },
+                {
+                    name: 'Huỳnh Kim B',
+                    image: 'https://via.placeholder.com/100',
+                },
+                {
+                    name: 'Huỳnh Kim B',
+                    image: 'https://via.placeholder.com/100',
+                },
+                {
+                    name: 'Huỳnh Kim B',
+                    image: 'https://via.placeholder.com/100',
+                }
+            ],
+        },
+        {
+            id: 6,
+            name: 'Group 6',
+            description: 'VN eyes more fruit exports to Japan.',
+            members: [
+                {
+                    name: 'Huỳnh Kim Sơn',
+                    image: 'https://via.placeholder.com/100',
+                },
+                {
+                    name: 'Huỳnh Kim A',
+                    image: 'https://via.placeholder.com/100',
+                },
+                {
+                    name: 'Huỳnh Kim B',
+                    image: 'https://via.placeholder.com/100',
+                },
+                {
+                    name: 'Huỳnh Kim B',
+                    image: 'https://via.placeholder.com/100',
+                }
             ],
         }
     ];
