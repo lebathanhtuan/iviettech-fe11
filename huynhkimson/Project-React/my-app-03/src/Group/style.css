@@ -1,0 +1,12 @@
+.item {
+    border: 1px solid black;
+    margin-bottom: 20px;
+    padding: 0px;
+}
+
+.item-name {
+    padding: 10px;
+    background-color:gray;
+    color: white;
+    font-weight: bold;
+}
