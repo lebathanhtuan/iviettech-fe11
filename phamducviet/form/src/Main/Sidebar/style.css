@@ -1,0 +1,13 @@
+.sidebar{
+    background-color: #bae8e8;
+    min-height: 40px;
+    width: 300px;
+    
+}
+.sidebar :hover{
+    background-color: #ffd803;
+}
+.sidebar-active{
+    background-color: #ffd803;
+
+}
