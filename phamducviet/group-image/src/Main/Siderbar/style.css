@@ -1,0 +1,9 @@
+.siderbar{
+    background-color: #bae8e8;
+    min-height: 40px;
+    width: 300px;
+    
+}
+.siderbar :hover{
+    background-color: #ffd803;
+}
