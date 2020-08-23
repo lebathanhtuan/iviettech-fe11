@@ -1,0 +1,29 @@
+.header{
+    background-color: #90b4ce;
+    height: 50px;
+    display: flex;
+    padding: 0 10px;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+   
+}
+.header-menu div:hover{
+    background-color: yellowgreen;
+}
+.header-menu{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+   
+}
+.menu-item{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    min-width: 100px;
+    text-align: center;
+}
