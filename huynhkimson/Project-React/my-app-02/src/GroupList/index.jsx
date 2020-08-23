@@ -2,10 +2,40 @@ import React, { useState } from 'react';
 import './style.css';
 
 function GroupList(props) {
-    const { name, description, members, grouplistIndex, activeIndex, setGrouplistActiveIndex } = props;
-    console.log("GroupList -> activeIndex", activeIndex)
-    console.log("GroupList -> grouplistIndex", grouplistIndex)
+    const { name,
+        description,
+        members,
+        grouplistIndex,
+        activeIndex,
+        setGrouplistActiveIndex,
+        cartData,
+        setCartdata,
+        groupListData,
+        isCard
+    } = props;
     const [count, setCount] = useState(1);
+
+    const handelSelectCart = () => {
+        setGrouplistActiveIndex(grouplistIndex);
+        const cartDataSelectIndex = cartData.findIndex((data) => data.id === groupListData.id);
+        if (cartDataSelectIndex === -1) {
+            setCartdata([
+                ...cartData,
+                groupListData,
+            ]);
+        }
+    }
+
+    const handelDeleteCart = () => {
+        const cartDataDeleteIndex = cartData.findIndex((data) => data.id === groupListData.id);
+        if (cartDataDeleteIndex !== -1) {
+            const newCartData = cartData;
+            cartData.splice(cartDataDeleteIndex, 1);
+            setCartdata([
+                ...newCartData,
+            ]);
+        }
+    }
 
     function renderMembersGroup() {
         return members.map((member, index) => {
@@ -37,9 +67,18 @@ function GroupList(props) {
                         return setCount(count - 1)
                 }}>
                     -</button>
-                <button className="btn btn-primary ml-2"
-                    onClick={() => setGrouplistActiveIndex(grouplistIndex)}>
-                    Select</button>
+                {isCard
+                    ? (
+                        <button className="btn btn-primary ml-2"
+                            onClick={() => handelSelectCart()}>
+                            Select</button>
+                    )
+                    : (
+                        < button className="btn btn-danger ml-2"
+                            onClick={() => handelDeleteCart()}>
+                            Delete</button>
+                    )
+                }
             </div>
             <div className="image ">{renderMembersGroup()} {renderSurplus()} </div>
             <div className=" item-description border-top">{description}</div>

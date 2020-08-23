@@ -1,8 +1,8 @@
 .item-group {
     border: 1px solid black;
-    margin: 30px 45px 0px 45px;
+    margin: 30px 45px 10px 45px;
     padding: 0px;
-    opacity: 0.3;
+    opacity: 0.5;
 }
 .item-group-active{
     opacity: 1.0;
