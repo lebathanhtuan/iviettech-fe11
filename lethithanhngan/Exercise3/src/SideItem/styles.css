@@ -1,0 +1,9 @@
+.itemm-active{
+   width: 50%;
+}
+.itemm-active:hover{
+    background-color:grey;
+}
+.itemm{
+    color: antiquewhite;
+ }
