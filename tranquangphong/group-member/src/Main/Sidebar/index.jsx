@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import SidebarItem from './SidebarItem';
 import './styles.css';
 
 function Sidebar() {
+  const [ sidebarActiveIndex, setSidebarActiveIndex ] = useState(0);
+
   const sidebarData = [
     { 
       title: 'Home'
@@ -19,9 +21,15 @@ function Sidebar() {
   ];
 
   const sidebarMap = () => {
-    return sidebarData.map((item, index) => {
+    return sidebarData.map((sidebarItem, sidebarIndex) => {
       return (
-        <SidebarItem key={index} itemName={item.title} />
+        <SidebarItem
+          key={ sidebarIndex }
+          itemName={ sidebarItem.title }
+          sidebarIndex={ sidebarIndex }
+          sidebarActiveIndex={ sidebarActiveIndex }
+          setSidebarActiveIndex={ setSidebarActiveIndex }
+        />
       );
     });
   }

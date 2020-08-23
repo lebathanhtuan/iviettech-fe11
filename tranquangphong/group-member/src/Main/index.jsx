@@ -6,6 +6,7 @@ import './styles.css';
 function Main() {
   const groupList = [
     {
+      id: 1,
       name: 'Group 1',
       description: 'asdosando asdpams dmsa asd a',
       members: [
@@ -32,6 +33,7 @@ function Main() {
       ],
     },
     {
+      id: 2,
       name: 'Group 2',
       description: 'asdosando asdpams dmsa asd a',
       members: [
@@ -50,6 +52,7 @@ function Main() {
       ],
     },
     {
+      id: 3,
       name: 'Group 3',
       description: 'asdosando asdpams dmsa asd a',
       members: [
