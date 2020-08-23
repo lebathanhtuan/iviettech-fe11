@@ -1,0 +1,23 @@
+.header{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #797a7e;
+    height: 100px;
+    width: 1500px;
+    color : white;
+}
+.header-name{
+    display: flex;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+.name{
+    padding-left: 20px;
+}
+.name:hover{
+    color: plum;
+}

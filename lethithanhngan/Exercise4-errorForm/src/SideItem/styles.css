@@ -1,0 +1,11 @@
+.side-item{
+    color: black;
+    
+}
+.side-item:hover{
+    background-color: #e1ccec;
+}
+
+.side-active{
+    background-color:#be9fe1 ;
+}
