@@ -1,0 +1,30 @@
+.body{
+    width: 100%;
+    margin:0;
+    height: 1000px;
+    background-color: #b3e6ff;
+}
+.form{
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    width: 900px;
+    height: 700px;
+    border-radius: 10px;
+    box-shadow: 3px 6px 10px;
+    
+}
+.introduce{
+    display: block;
+    width: 40%;
+    height: 100%;
+    background-color: #0088cc;
+    background-image: url("https://vienthongso.com.vn/wp-content/uploads/2019/03/background-159244_960_720.png");
+    float: left;
+}
+.register{
+    float: left;
+    width: 60%;
+    height: 100%;
+    background-color: white;
+}
