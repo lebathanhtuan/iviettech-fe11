@@ -1,0 +1,31 @@
+.list-container {
+  width: calc(100% - 300px);
+}
+
+.list-content {
+  padding: 16px;
+}
+
+.test {
+  position: absolute;
+  top: 0;
+  right: 0;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  margin: 16px;
+  padding: 16px;
+
+  width: 100px;
+  height: auto;
+
+  border: 1px solid gray;
+  border-radius: 4px;
+  box-shadow: 0 3px 6px 10px rgba(0, 0, 0, 0.3);
+
+  font-size: 14px;
+  color: red;
+  background-color: black;
+}
