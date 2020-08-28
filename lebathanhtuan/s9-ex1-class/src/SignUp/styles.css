@@ -1,0 +1,10 @@
+.item {
+  margin: 16px 0;
+  border: 1px solid gray;
+  box-shadow: 3px 6px 10px rgba(0, 0, 0, 0.1);
+  opacity: 1;
+}
+
+.item-active {
+  opacity: 0.5;
+}
