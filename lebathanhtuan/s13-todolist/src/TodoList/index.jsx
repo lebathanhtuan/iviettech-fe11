@@ -16,31 +16,49 @@ function TodoList() {
     }
   ]);
   const [isShowModifyModal, setIsShowModifyModal] = useState(false);
-  const [isShowConfirmModal, setIsShowConfirmModal] = useState(null);
+  const [modifyModalData, setModifyModalData] = useState({});
+  const [isShowConfirmModal, setIsShowConfirmModal] = useState(false);
+  const [confirmModalData, setConfirmModalData] = useState({});
 
   // Show/hide Modify Modal
-  const handleShowModifyModal = () => {
+  const handleShowModifyModal = (modifyType, modifyValue, index) => {
     setIsShowModifyModal(true);
+    setModifyModalData({
+      type: modifyType,
+      title: modifyValue,
+      index: index,
+    });
   }
   const handleHideModifyModal = () => {
     setIsShowModifyModal(false);
+    setModifyModalData({});
   }
 
   // Show/hide Confirm Modal
   const handleShowConfirmModal = (index) => {
-    setIsShowConfirmModal({ index: index });
+    setIsShowConfirmModal(true);
+    setConfirmModalData({ index: index });
   }
   const handleHideConfirmModal = () => {
-    setIsShowConfirmModal(null);
+    setIsShowConfirmModal(false);
+    setConfirmModalData({});
   }
 
-  const handleSubmitForm = (values) => {
-    setTodoListData([
-      {
-        title: values.title,
-      },
-      ...todoListData,
-    ]);
+  const handleSubmitForm = (values, type, index) => {
+    if (type === 'create') {
+      setTodoListData([
+        {
+          title: values.title,
+        },
+        ...todoListData,
+      ]);
+    } else {
+      const newTodoListData = todoListData;
+      newTodoListData.splice(index, 1, { title: values.title });
+      setTodoListData([
+        ...newTodoListData,
+      ]);
+    }
     setIsShowModifyModal(false);
   }
 
@@ -48,9 +66,9 @@ function TodoList() {
     const newTodoListData = todoListData;
     newTodoListData.splice(index, 1);
     setTodoListData([
-      ...newTodoListData
+      ...newTodoListData,
     ]);
-    setIsShowConfirmModal(null);
+    setIsShowConfirmModal(false);
   }
 
   const renderItemList = () => {
@@ -65,7 +83,12 @@ function TodoList() {
           >
             Xóa
           </Button>
-          <Button variant="outline-primary">Sửa</Button>
+          <Button
+            variant="outline-primary"
+            onClick={() => handleShowModifyModal('edit', item.title, itemIndex)}
+          >
+            Sửa
+          </Button>
         </div>
       </ListGroup.Item>
     ))
@@ -77,7 +100,7 @@ function TodoList() {
         <div className="todo-list-content">
           <div className="todo-list-title">
             <h4>Todo List</h4>
-            <Button variant="primary" onClick={() => handleShowModifyModal()}>
+            <Button variant="primary" onClick={() => handleShowModifyModal('create')}>
               Thêm công việc
             </Button>
           </div>
@@ -92,11 +115,13 @@ function TodoList() {
         isShowModal={isShowModifyModal}
         handleHideModal={handleHideModifyModal}
         handleSubmitForm={handleSubmitForm}
+        modalData={modifyModalData}
       />
       <ConfirmDeleteModal
         isShowModal={isShowConfirmModal}
         handleHideModal={handleHideConfirmModal}
         handleDeleteTask={handleDeleteTask}
+        modalData={confirmModalData}
       />
     </div>
   );

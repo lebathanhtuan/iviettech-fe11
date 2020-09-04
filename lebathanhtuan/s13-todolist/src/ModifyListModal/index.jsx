@@ -11,20 +11,24 @@ function ModifyListModal({
   isShowModal,
   handleHideModal,
   handleSubmitForm,
+  modalData,
 }) {
+  console.log('Log: : ModifyListModal', {isShowModal, modalData});
   return (
     <Modal show={isShowModal} onHide={handleHideModal}>
       <Modal.Header closeButton>
-        <Modal.Title>Thêm công việc</Modal.Title>
+        <Modal.Title>
+          {`${modalData.type === 'create' ? 'Thêm' : 'Sửa'} công việc`}
+        </Modal.Title>
       </Modal.Header>
       <Formik
-        initialValues={{ title: '' }}
+        initialValues={{ title: modalData.type === 'create' ? '' : modalData.title }}
         validationSchema={Yup.object({
           title: Yup.string()
             .required('Nội dung công việc không được để trống')
             .max(50, 'Nội dung công việc không được quá 50 kí tự'),
         })}
-        onSubmit={(values) => handleSubmitForm(values)}
+        onSubmit={(values) => handleSubmitForm(values, modalData.type, modalData.index)}
       >
         <Form>
           <Modal.Body>

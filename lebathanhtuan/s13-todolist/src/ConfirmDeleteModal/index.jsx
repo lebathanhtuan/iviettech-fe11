@@ -5,9 +5,10 @@ function ConfirmDeleteModal({
   isShowModal,
   handleHideModal,
   handleDeleteTask,
+  modalData,
 }) {
   return (
-    <Modal show={!!isShowModal} onHide={handleHideModal}>
+    <Modal show={isShowModal} onHide={handleHideModal}>
       <Modal.Header closeButton>
         <Modal.Title>Xác nhận xóa</Modal.Title>
       </Modal.Header>
@@ -21,7 +22,7 @@ function ConfirmDeleteModal({
         <Button
           type="submit"
           variant="danger"
-          onClick={() => handleDeleteTask(isShowModal.index)}
+          onClick={() => handleDeleteTask(modalData.index)}
         >
           Xóa
         </Button>
