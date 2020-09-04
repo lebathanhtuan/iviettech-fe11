@@ -1,16 +1,25 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import './styles.css';
 
 function Tab1(props) {
+  const [changeColor, setChangeColor] = useState(false);
+  const { formValue, setFormValue } = props;
+
+  useEffect(() => {
+    if (formValue.email === 'ttt@gmail.com') {
+      setChangeColor(true);
+    }
+  }, [formValue]);
+
   useEffect(() => {
     return () => {
-      console.log('Rời khỏi tab 1')
+      setFormValue({});
     }
   }, []);
 
   return (
-    <div className="list-container">
-      Tab 1
+    <div className={`list-container ${changeColor && 'text-danger'}`}>
+      Email: {formValue.email}
     </div>
   );
 }
