@@ -1,8 +1,14 @@
-import React from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Formik, Form, ErrorMessage, Field } from 'formik';
 import * as Yup from 'yup';
 import './style.css'
-function SignUp(props) {
+function SignUp() {
+    const inputElement = useRef(null);
+
+    useEffect(() => {
+        inputElement.current.focus();
+    }, []);
+
     return (
         <Formik
             initialValues={{
@@ -18,11 +24,11 @@ function SignUp(props) {
             }}
             validationSchema={Yup.object({
                 firstname: Yup.string()
-                    .matches(/([A-Za-z])/, 'Tên của bạn không đúng định dạng.')
+                    .matches(/([A-Za-z])/, 'Tên của bạn không đúng định dạng')
                     .max(20, 'Họ không quá 20 kí tự')
                     .required('Mời bạn nhập Tên'),
                 lastname: Yup.string()
-                    .matches(/([A-Za-z])/, 'Họ của bạn không đúng định dạng.')
+                    .matches(/([A-Za-z])/, 'Họ của bạn không đúng định dạng')
                     .max(10, 'Họ không quá 10 kí tự')
                     .required('Mời bạn nhập Họ'),
                 email: Yup.string()
@@ -33,7 +39,7 @@ function SignUp(props) {
                     .required('Mời bạn nhập password'),
                 confirmpassword: Yup.string()
                     .min(8, 'Password phải có độ dài tối thiểu là 8 kí tự')
-                    .required('Mời bạn nhập Verify Password')
+                    .required('Mời bạn nhập Confirm Password')
                     .oneOf([Yup.ref('password')], 'Mật khẩu xác thực không trùng'),
                 address: Yup.string()
                     .max(30, 'Địa chỉ không quá 30 kí tự')
@@ -46,8 +52,10 @@ function SignUp(props) {
                 checkbox: Yup.string()
                     .required('Mời bạn chấp nhận các quy tắc và điều kiện'),
             })}
-            onSubmit={(values) => console.log(values)}
-        >
+            onSubmit={(values, { resetForm }) => {
+                console.log(values);
+                resetForm({ values: '' });
+            }}>
             <Form>
                 <div className="form -row">
                     <h3>Register Form</h3>
@@ -61,6 +69,7 @@ function SignUp(props) {
                                     return (
                                         <>
                                             <input
+                                                ref={inputElement}
                                                 {...field}
                                                 type="text"
                                                 className={`form-control firstname ${meta.touched && meta.error ? 'border-danger' : ''}`}
@@ -224,7 +233,7 @@ function SignUp(props) {
                                 <label className="form-check-label mr-2" htmlFor="approve">
                                     Accept rules and conditions
                                 </label>
-                                <a href="#">
+                                <a href="https://www.google.com.vn">
                                     <u>Click here</u>
                                 </a>
                             </div>
@@ -237,7 +246,7 @@ function SignUp(props) {
                         <div className="form-group">
                             <button
                                 type="submit"
-                                className="btn btn-primary "
+                                className="btn btn-primary btnSignUp "
                             >Sign Up
                     </button>
                         </div>

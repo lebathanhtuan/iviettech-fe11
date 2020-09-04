@@ -1,0 +1,64 @@
+import React from 'react';
+import { Button, Modal } from 'react-bootstrap'
+import { Formik, Form, Field } from 'formik';
+import * as Yup from 'yup';
+import './style.css';
+
+function ModifyListModal(props) {
+    const { isShowModal,
+        handleHideModal,
+        handleSubmitForm,
+        modalData,
+    } = props;
+    return (
+        <>
+            <Modal show={!!isShowModal} onHide={handleHideModal}>
+                <Formik
+                    initialValues={{ title: modalData.type === 'create' ? '' : modalData.title }}
+                    validationSchema={Yup.object({
+                        title: Yup.string()
+                            .required('Mời bạn nhập nội dung công việc.')
+                            .max(50, 'Nội dung công việc không được quá 50 kí tự.')
+                    })}
+                    onSubmit={(values) => handleSubmitForm(values, modalData.type, modalData.index)}>
+                    <Form>
+                        <Modal.Header closeButton>
+                            <Modal.Title>
+                                {`${modalData.type === 'create' ? 'Thêm' : 'Sửa'} công việc`}
+                            </Modal.Title>
+                        </Modal.Header>
+                        <Modal.Body>
+                            <div className="form-group ">
+                                <Field
+                                    name="title"
+                                    render={(props) => {
+                                        const { field, meta } = props;
+                                        return (
+                                            <>
+                                                <input
+                                                    {...field}
+                                                    type="text"
+                                                    className={`form-control ${meta.error ? 'border-danger' : ''}`}
+                                                    placeholder="Nội dung công việc" />
+                                                {(meta.error) && <div className="text-danger" >{meta.error}</div>}
+                                            </>
+                                        )
+                                    }} />
+                            </div>
+                        </Modal.Body>
+                        <Modal.Footer>
+                            <Button variant="secondary" onClick={() => { handleHideModal() }}>
+                                Close
+                            </Button>
+                            <Button type="submit" variant="primary" >
+                                Save Changes
+                            </Button>
+                        </Modal.Footer>
+                    </Form>
+                </Formik>
+            </Modal>
+        </>
+    );
+}
+
+export default ModifyListModal;
