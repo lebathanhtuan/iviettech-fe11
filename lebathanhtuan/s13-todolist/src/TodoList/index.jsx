@@ -15,10 +15,16 @@ function TodoList() {
       title: 'Dạy online',
     }
   ]);
+  const [searchKey, setSearchKey] = useState('');
   const [isShowModifyModal, setIsShowModifyModal] = useState(false);
   const [modifyModalData, setModifyModalData] = useState({});
   const [isShowConfirmModal, setIsShowConfirmModal] = useState(false);
   const [confirmModalData, setConfirmModalData] = useState({});
+  const [isShowMore, setIsShowMore] = useState(false);
+
+  const newTodoListData = todoListData.filter((item) => {
+    return (item.title.toLowerCase()).indexOf(searchKey.toLowerCase()) !== -1;
+  });
 
   // Show/hide Modify Modal
   const handleShowModifyModal = (modifyType, modifyValue, index) => {
@@ -71,35 +77,51 @@ function TodoList() {
     setIsShowConfirmModal(false);
   }
 
+  const handleChangeSearch = (e) => {
+    const { value } = e.target;
+    setSearchKey(value);
+  }
+  
   const renderItemList = () => {
-    return todoListData.map((item, itemIndex) => (
-      <ListGroup.Item key={itemIndex} className="todo-item-container">
-        <p>{item.title}</p>
-        <div className="todo-item-action">
-          <Button
-            variant="outline-danger"
-            className="mr-2"
-            onClick={() => handleShowConfirmModal(itemIndex)}
-          >
-            Xóa
-          </Button>
-          <Button
-            variant="outline-primary"
-            onClick={() => handleShowModifyModal('edit', item.title, itemIndex)}
-          >
-            Sửa
-          </Button>
-        </div>
-      </ListGroup.Item>
-    ))
+    return newTodoListData.map((item, itemIndex) => {
+      if (!isShowMore && itemIndex > 4) {
+        return null;
+      }
+      return (
+        <ListGroup.Item key={itemIndex} className="todo-item-container">
+          <p>{item.title}</p>
+          <div className="todo-item-action">
+            <Button
+              variant="outline-danger"
+              className="mr-2"
+              onClick={() => handleShowConfirmModal(itemIndex)}
+            >
+              Xóa
+            </Button>
+            <Button
+              variant="outline-primary"
+              onClick={() => handleShowModifyModal('edit', item.title, itemIndex)}
+            >
+              Sửa
+            </Button>
+          </div>
+        </ListGroup.Item>
+      );
+    });
   }
 
   return (
     <div>
       <div className="todo-list-container">
         <div className="todo-list-content">
+          <h4>Todo List</h4>
           <div className="todo-list-title">
-            <h4>Todo List</h4>
+            <input
+              className="form-control"
+              placeholder="Tìm kiếm..."
+              onChange={(e) => handleChangeSearch(e)}
+              style={{ width: 300 }}
+            />
             <Button variant="primary" onClick={() => handleShowModifyModal('create')}>
               Thêm công việc
             </Button>
@@ -108,6 +130,17 @@ function TodoList() {
             <ListGroup>
               {renderItemList()}
             </ListGroup>
+            {(!isShowMore && newTodoListData.length > 5) && (
+              <div className="d-flex justify-content-center mt-2">
+                <Button
+                  variant="outline-secondary"
+                  className="rounded-pill"
+                  onClick={() => setIsShowMore(true)}
+                >
+                  Hiển thị thêm
+                </Button>
+              </div>
+            )}
           </div>
         </div>
       </div>

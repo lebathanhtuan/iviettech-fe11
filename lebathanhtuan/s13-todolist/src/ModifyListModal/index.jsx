@@ -13,7 +13,6 @@ function ModifyListModal({
   handleSubmitForm,
   modalData,
 }) {
-  console.log('Log: : ModifyListModal', {isShowModal, modalData});
   return (
     <Modal show={isShowModal} onHide={handleHideModal}>
       <Modal.Header closeButton>
