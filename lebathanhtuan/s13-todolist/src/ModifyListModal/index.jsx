@@ -26,13 +26,16 @@ function ModifyListModal({
           title: Yup.string()
             .required('Nội dung công việc không được để trống')
             .max(50, 'Nội dung công việc không được quá 50 kí tự'),
+          description: Yup.string()
+            .required('Mô tả công việc không được để trống')
+            .max(50, 'Mô tả công việc không được quá 200 kí tự'),
         })}
         onSubmit={(values) => handleSubmitForm(values, modalData.type, modalData.index)}
       >
         <Form>
           <Modal.Body>
             <FormBootstrap.Group>
-              <label htmlFor="title">Nội dung công việc</label>
+              <label htmlFor="title">Tiêu đề</label>
               <Field
                 type="text"
                 className="form-control"
@@ -41,6 +44,17 @@ function ModifyListModal({
               />
               <div className="text-danger">
                 <ErrorMessage name="title" />
+              </div>
+              <label htmlFor="title">Mô tả</label>
+              <Field
+                type="text"
+                as="textarea"
+                className="form-control"
+                name="description"
+                placeholder="Mô tả công việc"
+              />
+              <div className="text-danger">
+                <ErrorMessage name="description" />
               </div>
             </FormBootstrap.Group>
           </Modal.Body>
