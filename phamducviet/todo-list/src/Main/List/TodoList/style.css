@@ -1,0 +1,15 @@
+.todoList{
+
+}
+.todoList-content{
+    display: flex !important;
+    justify-content: space-between  ;
+}
+.todoList-content input{
+    display: inline block;
+    width: 60%;
+}
+.list-group{
+   width: 100%;
+
+}
