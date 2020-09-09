@@ -21,7 +21,16 @@ function ModifyListModal({
         </Modal.Title>
       </Modal.Header>
       <Formik
-        initialValues={{ title: modalData.type === 'create' ? '' : modalData.title }}
+        initialValues={modalData.type === 'create'
+          ? {
+            title: '',
+            description: '',
+          }
+          : {
+            title: modalData.title,
+            description: modalData.description,
+          }
+        }
         validationSchema={Yup.object({
           title: Yup.string()
             .required('Nội dung công việc không được để trống')
@@ -30,7 +39,7 @@ function ModifyListModal({
             .required('Mô tả công việc không được để trống')
             .max(50, 'Mô tả công việc không được quá 200 kí tự'),
         })}
-        onSubmit={(values) => handleSubmitForm(values, modalData.type, modalData.index)}
+        onSubmit={(values) => handleSubmitForm(values, modalData.type, modalData.id)}
       >
         <Form>
           <Modal.Body>

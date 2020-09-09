@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Button, ListGroup } from 'react-bootstrap';
+import { Button, ListGroup, Form } from 'react-bootstrap';
 
 import ModifyListModal from '../ModifyListModal';
 import ConfirmDeleteModal from '../ConfirmDeleteModal';
@@ -44,6 +44,7 @@ function TodoList() {
       description: 'Ahihi 7',
     }
   ]);
+  const [completeListData, setCompleteListData] = useState([]);
   const [searchKey, setSearchKey] = useState('');
   const [isShowModifyModal, setIsShowModifyModal] = useState(false);
   const [modifyModalData, setModifyModalData] = useState({});
@@ -51,20 +52,26 @@ function TodoList() {
   const [confirmModalData, setConfirmModalData] = useState({});
   const [isShowMore, setIsShowMore] = useState(false);
   const [moreInfoList, setMoreInfoList] = useState([]);
-  console.log('Log: TodoList -> moreInfoList', moreInfoList);
 
   const filterTodoListData = todoListData.filter((item) => {
     return (item.title.toLowerCase()).indexOf(searchKey.toLowerCase()) !== -1;
   });
-
+  
   // Show/hide Modify Modal
-  const handleShowModifyModal = (modifyType, modifyValue, index) => {
+  const handleShowModifyModal = (modifyType, modifyValue) => {
     setIsShowModifyModal(true);
-    setModifyModalData({
-      type: modifyType,
-      title: modifyValue,
-      index: index,
-    });
+    if (modifyType === 'create') {
+      setModifyModalData({
+        type: modifyType,
+      });
+    } else {
+      setModifyModalData({
+        type: modifyType,
+        title: modifyValue.title,
+        description: modifyValue.description,
+        id: modifyValue.id,
+      });
+    } 
   }
   const handleHideModifyModal = () => {
     setIsShowModifyModal(false);
@@ -85,14 +92,21 @@ function TodoList() {
     if (type === 'create') {
       setTodoListData([
         {
+          id: Math.floor(Math.random() * 100),
           title: values.title,
+          description: values.description,
         },
         ...todoListData,
       ]);
     } else {
       const newTodoListData = todoListData;
       const taskIndex = todoListData.findIndex((item) => item.id === editedId);
-      newTodoListData.splice(taskIndex, 1, { title: values.title });
+      const editedTask = {
+        ...todoListData[taskIndex],
+        title: values.title,
+        description: values.description,
+      };
+      newTodoListData.splice(taskIndex, 1, editedTask);
       setTodoListData([
         ...newTodoListData,
       ]);
@@ -130,16 +144,36 @@ function TodoList() {
       ]);
     }
   }
+
+  const handleCompleteTask = (e, completeItem) => {
+    e.preventDefault();
+    const { checked } = e.target;
+    if (checked) {
+      const newTodoListData = todoListData;
+      setCompleteListData([
+        completeItem,
+        ...completeListData,
+      ]);
+      const taskIndex = todoListData.findIndex((item) => item.id === completeItem.id);
+      newTodoListData.splice(taskIndex, 1);
+      setTodoListData([
+        ...newTodoListData,
+      ]);
+    }
+  }
   
-  const renderItemList = () => {
+  const renderTodoTaskList = () => {
     return filterTodoListData.map((item, itemIndex) => {
       if (!isShowMore && itemIndex > 4) {
         return null;
       }
       return (
-        <ListGroup.Item key={itemIndex}>
+        <ListGroup.Item key={`todolist-${item.id}-${itemIndex}`}>
           <div className="todo-item-container">
-            <p>{item.title}</p>
+            <div className="d-flex">
+              <Form.Check type="checkbox" onChange={(e) => handleCompleteTask(e, item)} />
+              <p className="ml-2">{item.title}</p>
+            </div>
             <div className="todo-item-action">
               <Button
                 variant="outline-secondary"
@@ -157,7 +191,7 @@ function TodoList() {
               </Button>
               <Button
                 variant="outline-primary"
-                onClick={() => handleShowModifyModal('edit', item.title, item.id)}
+                onClick={() => handleShowModifyModal('edit', item)}
               >
                 Sửa
               </Button>
@@ -168,6 +202,17 @@ function TodoList() {
               {item.description}
             </div>
           )}
+        </ListGroup.Item>
+      );
+    });
+  }
+
+  const renderCompleteTaskList = () => {
+    return completeListData.map((item, itemIndex) => {
+      return (
+        <ListGroup.Item key={itemIndex} className="d-flex" style={{ backgroundColor: '#DDDDDD' }}>
+          <Form.Check type="checkbox" checked />
+          <p className="ml-2"><del>{item.title}</del></p>
         </ListGroup.Item>
       );
     });
@@ -191,7 +236,7 @@ function TodoList() {
           </div>
           <div className="mt-2">
             <ListGroup>
-              {renderItemList()}
+              {renderTodoTaskList()}
             </ListGroup>
             {(!isShowMore && filterTodoListData.length > 5) && (
               <div className="d-flex justify-content-center mt-2">
@@ -204,6 +249,12 @@ function TodoList() {
                 </Button>
               </div>
             )}
+          </div>
+          <div className="mt-2">
+            <h5>Công việc đã hoàn thành</h5>
+            <ListGroup>
+              {renderCompleteTaskList()}
+            </ListGroup>
           </div>
         </div>
       </div>
