@@ -30,7 +30,7 @@ body {
     color: #494a4b;
 }
 .list-group-item{
-    min-width: 800px;
+    min-width: 900px;
     margin-top: 10px;
     border: 0;
     border-bottom: 3px dashed #fdcb6e;
@@ -44,6 +44,7 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-top: 20px
 }
 .todo-list-container button {
     width: 85px;
@@ -59,4 +60,17 @@ body {
 }
 .todo-item-container p {
     margin: 10px 0 0 0 ;
+}
+.inputSearch {
+    width: 500px;
+    border: 1px white;
+    border-radius: 10px;
+    padding: 24px
+}
+.todo-item-description {
+    margin-top: 8px;
+    padding: 8px;
+    border-radius: 10px;
+    background-color: #fdc66e;
+    color: white;
 }

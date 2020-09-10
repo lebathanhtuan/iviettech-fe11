@@ -18,7 +18,10 @@ function ModifyListModal(props) {
                     validationSchema={Yup.object({
                         title: Yup.string()
                             .required('Mời bạn nhập nội dung công việc.')
-                            .max(50, 'Nội dung công việc không được quá 50 kí tự.')
+                            .max(50, 'Nội dung công việc không được quá 50 kí tự.'),
+                        description: Yup.string()
+                            .required('Mời bạn nhập mô tả công việc.')
+                            .max(100, 'Nội dung công việc không được quá 100 kí tự.')
                     })}
                     onSubmit={(values) => handleSubmitForm(values, modalData.type, modalData.index)}>
                     <Form>
@@ -29,6 +32,7 @@ function ModifyListModal(props) {
                         </Modal.Header>
                         <Modal.Body>
                             <div className="form-group ">
+                                <label htmlFor="title">Tiêu đề</label>
                                 <Field
                                     name="title"
                                     render={(props) => {
@@ -40,6 +44,24 @@ function ModifyListModal(props) {
                                                     type="text"
                                                     className={`form-control ${meta.error ? 'border-danger' : ''}`}
                                                     placeholder="Nội dung công việc" />
+                                                {(meta.error) && <div className="text-danger" >{meta.error}</div>}
+                                            </>
+                                        )
+                                    }} />
+                            </div>
+                            <div className="form-group ">
+                                <label htmlFor="title">Mô tả</label>
+                                <Field
+                                    name="description"
+                                    render={(props) => {
+                                        const { field, meta } = props;
+                                        return (
+                                            <>
+                                                <textarea
+                                                    {...field}
+                                                    type="text"
+                                                    className={`form-control ${meta.error ? 'border-danger' : ''}`}
+                                                    placeholder="Mô tả công việc" />
                                                 {(meta.error) && <div className="text-danger" >{meta.error}</div>}
                                             </>
                                         )
