@@ -1,0 +1,7 @@
+.item {
+  border: 1px solid #202022;
+}
+
+.item-active {
+  border: 1px solid orange;
+}
