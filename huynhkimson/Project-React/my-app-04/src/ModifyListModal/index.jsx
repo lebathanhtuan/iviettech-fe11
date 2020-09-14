@@ -10,11 +10,21 @@ function ModifyListModal(props) {
         handleSubmitForm,
         modalData,
     } = props;
+    console.log("ModifyListModal -> modalData", modalData)
     return (
         <>
             <Modal show={!!isShowModal} onHide={handleHideModal}>
                 <Formik
-                    initialValues={{ title: modalData.type === 'create' ? '' : modalData.title }}
+                    initialValues={modalData.type === 'create'
+                        ? {
+                            title: '',
+                            description: '',
+                        }
+                        : {
+                            title: modalData.title,
+                            description: modalData.description,
+                        }
+                    }
                     validationSchema={Yup.object({
                         title: Yup.string()
                             .required('Mời bạn nhập nội dung công việc.')

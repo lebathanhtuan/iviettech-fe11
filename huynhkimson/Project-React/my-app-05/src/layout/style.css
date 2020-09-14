@@ -1,0 +1,25 @@
+.main {
+    min-height: calc(100vh - 123px);
+    display: flex;
+    width: 100%;
+}
+.sidebar{
+    padding: 10px;
+    background-color: grey;
+}
+.hover:hover{
+    background-Color : white;
+    border-radius: 10px;
+    font-weight: bold;
+}
+.sidebar-active{
+    background-color: white;
+    font-weight: bold;
+}
+.sidebar-active{
+    border-radius: 10px;
+}
+.container-form{
+    min-height: calc(100vh - 56px);;
+    background-color: #93b4d9;
+}

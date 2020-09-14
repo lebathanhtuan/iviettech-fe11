@@ -12,16 +12,6 @@ function TodoList() {
             title: 'Mời bạn thêm nội dung cần nhập 1',
             description: 'Mô tả nội dung 1',
         },
-        {
-            id: 2,
-            title: 'Mời bạn thêm nội dung cần nhập 2 ',
-            description: 'Mô tả nội dung 2',
-        },
-        {
-            id: 3,
-            title: 'Mời bạn thêm nội dung cần nhập 3',
-            description: 'Mô tả nội dung 3',
-        },
 
     ]);
     const inputElement = useRef(null);
@@ -29,6 +19,7 @@ function TodoList() {
     useEffect(() => {
         inputElement.current.focus();
     }, []);
+    
     const [searchKey, setSearchKey] = useState('');
     const [isShowModifyModal, setIsShowModifyModal] = useState(false);
     const [modifyModalData, setModifyModalData] = useState({});
@@ -38,13 +29,22 @@ function TodoList() {
     const [moreInfoList, setMoreInfoList] = useState([]);
 
     // show/hide Modify Modal
-    const handleShowModifyModal = (modifyType, modifyValue, itemIndex) => {
+    const handleShowModifyModal = (modifyType, modifyValue, index) => {
+        // console.log("handleShowModifyModal -> itemIndex", itemIndex)
+        console.log("handleShowModifyModal -> modifyValue", modifyValue)
         setIsShowModifyModal(true);
-        setModifyModalData({
-            type: modifyType,
-            title: modifyValue,
-            index: itemIndex,
-        });
+        if (modifyType === 'create') {
+            setModifyModalData({
+                type: modifyType,
+            });
+        } else {
+            setModifyModalData({
+                type: modifyType,
+                title: modifyValue.title,
+                description: modifyValue.description,
+                index: index,
+            });
+        }
     };
     const handleHideModifyModal = () => {
         setIsShowModifyModal(false);
@@ -62,7 +62,7 @@ function TodoList() {
     };
 
     // Add/edit TodoList
-    const handleSubmitForm = (values, type, editedId) => {
+    const handleSubmitForm = (values, type, index) => {
         if (type === 'create') {
             setTodoListData([
                 {
@@ -73,8 +73,8 @@ function TodoList() {
             ]);
         } else {
             const newTodoListData = todoListData;
-            const taskIndex = todoListData.findIndex((item) => item.id === editedId);
-            newTodoListData.splice(taskIndex, 1, { title: values.title });
+            // const taskIndex = todoListData.findIndex((item) => item.id === editedId);
+            newTodoListData.splice(index, 1, { title: values.title, description: values.description });
             setTodoListData([
                 ...newTodoListData,
             ]);
@@ -105,6 +105,7 @@ function TodoList() {
         return ((item.title.toLowerCase()).indexOf(searchKey.toLowerCase()) !== -1)
     });
 
+    // chuyển đổi hiện ẩn show mô tả
     const handleToggleMoreInfo = (id) => {
         const moreInfoIndex = moreInfoList.findIndex((moreId) => moreId === id);
         if (moreInfoIndex === -1) {
@@ -151,7 +152,7 @@ function TodoList() {
                                         return null;
                                     }
                                     else {
-                                        handleShowModifyModal('edit', item.title, item.id)
+                                        handleShowModifyModal('edit', item, itemIndex)
                                     }
                                 }}>
                                 Edit</Button>
