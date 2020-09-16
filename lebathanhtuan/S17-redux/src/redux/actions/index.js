@@ -1,6 +1,2 @@
-export function getProductList(params) {
-  return {
-    type: 'GET_PRODUCT_LIST',
-    payload: params,
-  }
-}
+export * from './product.action';
+export * from './todoList.action';

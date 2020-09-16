@@ -46,8 +46,7 @@ function Products(props) {
 }
 
 const mapStateToProps = (state) => {
-  console.log('Log: mapStateToProps -> state', state);
-  const { productList } = state;
+  const { productList } = state.productReducer;
   return {
     productList,
   }

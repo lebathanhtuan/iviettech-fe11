@@ -1,22 +1,8 @@
-const initialState = {
-  productList: [],
-  userList: [],
-};
+import { combineReducers } from 'redux';
+import productReducer from './product.reducer';
+import todoListReducer from './todoList.reducer';
 
-function myReducer(state = initialState, action) {
-  switch (action.type) {
-    case 'GET_PRODUCT_LIST': {
-      return {
-        ...state,
-        productList: [
-          ...action.payload,
-        ],
-      }
-    }
-    default: {
-      return state;
-    }
-  }
-}
-
-export default myReducer;
+export default combineReducers({
+  productReducer,
+  todoListReducer,
+})

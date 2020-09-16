@@ -8,7 +8,7 @@ import DefaultLayout from './layout/DefaultLayout';
 import LoginLayout from './layout/LoginLayout';
 
 import Home from './pages/Home';
-import About from './pages/About';
+import TodoList from './pages/TodoList';
 import Products from './pages/Products';
 import Contact from './pages/Contact';
 import ProductDetail from './pages/ProductDetail';
@@ -34,7 +34,7 @@ ReactDOM.render(
           <LoginLayout exact path="/login" component={Login} />
 
           <DefaultLayout exact path="/" component={Home} />
-          <DefaultLayout exact path="/about" component={About} />
+          <DefaultLayout exact path="/todo-list" component={TodoList} />
           <DefaultLayout exact path="/products" component={Products} />
           <DefaultLayout exact path="/contact" component={Contact} />
           <DefaultLayout exact path="/product/:id" component={ProductDetail} />

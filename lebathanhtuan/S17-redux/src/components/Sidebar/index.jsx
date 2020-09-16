@@ -9,8 +9,8 @@ function Sidebar() {
       path: '/',
     },
     { 
-      title: 'About us',
-      path: '/about',
+      title: 'Todo List',
+      path: '/todo-list',
     },
     { 
       title: 'Products',
