@@ -1,0 +1,38 @@
+p {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.todo-list-container {
+  display: flex;
+  justify-content: center;
+  padding: 24px;
+  min-height: 100vh;
+}
+
+.todo-item-description {
+  margin-top: 8px;
+  padding: 8px;
+  background-color: #EEEEEE;
+}
+
+.todo-list-content {
+  width: 900px;
+}
+
+.todo-list-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.todo-item-container {
+  display: flex !important;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.todo-item-action {
+  display: flex;
+  align-items: center;
+}
