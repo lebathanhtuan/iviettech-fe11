@@ -1,0 +1,17 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "iPhone 12"
+    },
+    {
+      "id": 2,
+      "name": "Galaxy Note 10"
+    }
+  ],
+  "todoList": [
+    {
+      "id": 1
+    }
+  ]
+}
