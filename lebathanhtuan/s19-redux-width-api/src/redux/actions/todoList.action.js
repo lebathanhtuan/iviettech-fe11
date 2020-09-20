@@ -1,9 +1,17 @@
 import {
+  GET_TASK_LIST,
   CREATE_TASK,
   EDIT_TASK,
   DELETE_TASK,
   COMPLETE_TASK,
 } from '../constants';
+
+export function getTaskList(params) {
+  return {
+    type: GET_TASK_LIST,
+    payload: params,
+  }
+}
 
 export function createTask(params) {
   return {

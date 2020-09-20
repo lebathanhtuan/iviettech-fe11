@@ -4,21 +4,13 @@ import history from '../../util/history';
 
 import { getProductList } from '../../redux/actions';
 
-const productData = [
-  {
-    id: 1,
-    name: 'iphone 12',
-  },
-  {
-    id: 2,
-    name: 'galaxy note 10',
-  }
-];
-
 function Products(props) {
   const { productList, getList } = props;
   useEffect(() => {
-    getList(productData);
+    getList({
+      page: 1,
+      limit: 5,
+    });
   }, []);
 
   const renderProductList = () => {

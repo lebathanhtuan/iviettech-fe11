@@ -4,6 +4,7 @@ import { Router, Switch } from 'react-router-dom';
 import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 import createSagaMiddleware from 'redux-saga';
+import logger from 'redux-logger';
 
 import DefaultLayout from './layout/DefaultLayout';
 import LoginLayout from './layout/LoginLayout';
@@ -26,7 +27,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './index.css';
 
 const sagaMiddleware = createSagaMiddleware();
-const myStore = createStore(myReducer, applyMiddleware(sagaMiddleware));
+const myStore = createStore(myReducer, applyMiddleware(...[sagaMiddleware, logger]));
 sagaMiddleware.run(mySaga);
 
 ReactDOM.render(

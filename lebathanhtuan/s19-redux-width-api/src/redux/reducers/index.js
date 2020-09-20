@@ -5,4 +5,4 @@ import todoListReducer from './todoList.reducer';
 export default combineReducers({
   productReducer,
   todoListReducer,
-})
+});

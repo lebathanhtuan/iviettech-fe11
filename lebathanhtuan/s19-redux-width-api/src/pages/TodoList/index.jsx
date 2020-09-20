@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import { Button, ListGroup, Form } from 'react-bootstrap';
 
@@ -6,6 +6,7 @@ import ModifyListModal from './ModifyListModal';
 import ConfirmDeleteModal from './ConfirmDeleteModal';
 
 import {
+  getTaskList,
   createTask,
   editTask,
   deleteTask,
@@ -17,6 +18,7 @@ import './styles.css';
 function TodoList({
   todoList,
   completedList,
+  getTaskList,
   createTask,
   editTask,
   deleteTask,
@@ -29,6 +31,10 @@ function TodoList({
   const [confirmModalData, setConfirmModalData] = useState({});
   const [isShowMore, setIsShowMore] = useState(false);
   const [moreInfoList, setMoreInfoList] = useState([]);
+
+  useEffect(() => {
+    getTaskList();
+  },[]);
 
   const filterTodoListData = todoList.filter((item) => {
     return (item.title.toLowerCase()).indexOf(searchKey.toLowerCase()) !== -1;
@@ -68,7 +74,6 @@ function TodoList({
   const handleSubmitForm = (values, type, editedId) => {
     if (type === 'create') {
       createTask({
-        id: Math.floor(Math.random() * 100),
         title: values.title,
         description: values.description,
       });
@@ -229,7 +234,6 @@ function TodoList({
 }
 
 const mapStateToProps = (state) => {
-  console.log('Log: mapStateToProps -> state', state);
   const { todoList, completedList } = state.todoListReducer;
   return {
     todoList,
@@ -239,6 +243,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
+    getTaskList: (params) => dispatch(getTaskList(params)),
     createTask: (params) => dispatch(createTask(params)),
     editTask: (params) => dispatch(editTask(params)),
     deleteTask: (params) => dispatch(deleteTask(params)),
