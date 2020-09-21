@@ -9,8 +9,6 @@ function SidebarItem(props) {
         padding: 10,
         marginTop: 15
     }
-    const a = history.location.pathname
-    const b = menuItemSidebar.path
     return (
         <div style={itemColorStyle} className={` row hover sidebar-item ${history.location.pathname === menuItemSidebar.path ? 'sidebar-active' : ''}`}
             // onClick={() => setSidebarActiveIndex(sidebarIndex)}

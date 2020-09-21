@@ -1,14 +1,14 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React from 'react';
 import { Formik, Form, ErrorMessage, Field } from 'formik';
 import * as Yup from 'yup';
-import history from '../history'
+import history from '../../util/history'
 import './style.css'
 function SignUp() {
-    const inputElement = useRef(null);
+    // const inputElement = useRef(null);
 
-    useEffect(() => {
-        inputElement.current.focus();
-    }, []);
+    // useEffect(() => {
+    //     inputElement.current.focus();
+    // }, []);
 
     return (
         <Formik
@@ -72,7 +72,7 @@ function SignUp() {
                                         return (
                                             <>
                                                 <input
-                                                    ref={inputElement}
+                                                    // ref={inputElement}
                                                     {...field}
                                                     type="text"
                                                     className={`form-control inpSignUp-firstname ${meta.touched && meta.error ? 'border-danger' : ''}`}

@@ -1,0 +1,29 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "iPhone 12"
+    },
+    {
+      "id": 2,
+      "name": "Galaxy Note 10"
+    }
+  ],
+  "todoListData": [
+    {
+      "title": "1",
+      "description": "1",
+      "id": 1
+    },
+    {
+      "title": "2",
+      "description": "2",
+      "id": 2
+    },
+    {
+      "title": "42",
+      "description": "42",
+      "id": 4
+    }
+  ]
+}

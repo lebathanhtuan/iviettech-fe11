@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './style.css';
-import SidebarItem from '../SidebarItem/index';
+import SidebarItem from '../../Component/SidebarItem/index';
 
 function Sidebar(props) {
     const dataSidebar = [
@@ -23,6 +23,10 @@ function Sidebar(props) {
         {
             title: 'Mua trả góp',
             path: '/muatragop',
+        },
+        {
+            title: 'TodoList',
+            path: '/todolist',
         }
     ];
 

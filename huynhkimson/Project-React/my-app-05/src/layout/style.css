@@ -1,15 +1,17 @@
 .main {
-    min-height: calc(100vh - 123px);
     display: flex;
     width: 100%;
+    min-height: calc(100vh - 123px);
+    background-color: #FFEAA7;
 }
 .sidebar{
+    min-width: calc(100vw - 80vw);
     padding: 10px;
     background-color: grey;
 }
 .hover:hover{
     background-Color : white;
-    border-radius: 10px;
+    border-radius: 40px;
     font-weight: bold;
 }
 .sidebar-active{
@@ -17,7 +19,7 @@
     font-weight: bold;
 }
 .sidebar-active{
-    border-radius: 10px;
+    border-radius: 40px;
 }
 .container-form{
     min-height: calc(100vh - 56px);;

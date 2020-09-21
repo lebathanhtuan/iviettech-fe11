@@ -3,7 +3,7 @@ import { Route } from 'react-router-dom';
 import './style.css';
 
 import Header from '../Header';
-import Sidebar from '../Sidebar';
+import Sidebar from '../Component/Sidebar/index';
 import Footer from '../Footer';
 
 

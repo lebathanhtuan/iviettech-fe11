@@ -1,15 +1,13 @@
-.form-login{
-    position: relative;
-    top: 40px;
-    min-height: 500px;
-    width: 450px;
+.form-register{
+    min-height: 600px;
+    width: 500px;
     margin: 0 auto;
     padding: 20px;
     border-radius: 30px;
     background-color: white;
     box-shadow: 15px 15px 15px 5px black;
 }
-.title-form-login{
+.title-form-signup{
     height: 50px;
     margin-bottom: 20px;
     padding: 6px;
@@ -19,20 +17,31 @@
     letter-spacing: 2.5px;
     text-align: center;
 }
-.content-form-login{
+.content-form-signup{
     align-content: center;
-    width: 300px;
+    width: 370px;
     margin: 0 auto;
 }
-.inpEmail-login, .inpPass-login{
-    width: 350px;
+.inpSignUp{
+    width: 400px;
     border-radius: 25px;
 }
-.btnSubmit, .btnRegister{
-    width: 350px;
+.inpSignUp-firstname, .inpSignUp-phone {
+    width: 240px;
     border-radius: 20px;
+}
+.inpSignUp-lastname, .inpSignUp-gender {
+    width: 150px;
+    margin-left: 10px;
+    border-radius: 20px;
+}
+.text-danger{
+    margin-left: 10px;
+}
+.btnLogin, .btnSignUp{
+    width: 400px;
+    border-radius: 20px;
+    border: none;
     background-color:#93b4d9;
 }
-.back{
-    text-align: end;
-}
+

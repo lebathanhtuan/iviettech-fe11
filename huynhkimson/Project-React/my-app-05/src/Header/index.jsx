@@ -1,6 +1,6 @@
 import React from 'react';
 import './style.css';
-import history from '../history'
+import history from '../util/history'
 
 function Header() {
     return (

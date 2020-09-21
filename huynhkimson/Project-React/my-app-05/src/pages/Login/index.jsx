@@ -1,14 +1,14 @@
-import React, { useEffect, useRef } from 'react';
+import React from 'react';
 import { Formik, Form, ErrorMessage, Field } from 'formik';
 import * as Yup from 'yup';
-import history from '../history'
+import history from '../../util/history'
 import './style.css'
 function Login() {
-    const inputElement = useRef(null);
+    // const inputElement = useRef(null);
 
-    useEffect(() => {
-        inputElement.current.focus();
-    }, []);
+    // useEffect(() => {
+    //     inputElement.current.focus();
+    // }, []);
 
     return (
         <Formik
@@ -24,8 +24,6 @@ function Login() {
                 password: Yup.string()
                     .min(8, 'Password phải có độ dài tối thiểu là 8 kí tự')
                     .required('Mời bạn nhập password'),
-                checkbox: Yup.string()
-                    .required('Mời bạn chấp nhận các quy tắc và điều kiện'),
             })}
             onSubmit={(values, { resetForm }) => {
                 console.log(values);
@@ -46,7 +44,7 @@ function Login() {
                                         return (
                                             <>
                                                 <input
-                                                    ref={inputElement}
+                                                    // ref={inputElement}
                                                     {...field}
                                                     type="text"
                                                     className={`form-control inpEmail-login ${meta.touched && meta.error ? 'border-danger' : ''}`}
@@ -111,9 +109,10 @@ function Login() {
                                 </button>
                             </div>
                         </div>
-                        <div className="back">
-                            <a href="https://www.google.com.vn">
-                                <u>Back</u>
+                        <div className="forgot-pass">
+                            <a href=""
+                                onClick={() => history.push('/')}>
+                                <p>Forgot your password?</p>
                             </a>
                         </div>
                     </div>
