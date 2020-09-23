@@ -30,7 +30,7 @@ body {
     color: #494a4b;
 }
 .list-group-item{
-    min-width: 900px;
+    min-width: 700px;
     margin-top: 10px;
     border: 0;
     border-bottom: 3px dashed #fdcb6e;
@@ -58,8 +58,8 @@ body {
     justify-content: space-between;
     align-items: center;
 }
-.todo-item-container p {
-    margin: 10px 0 0 0 ;
+.item {
+    padding: 20px 0 0 0 ;
 }
 .inputSearch {
     width: 500px;
@@ -71,6 +71,10 @@ body {
     margin-top: 8px;
     padding: 8px;
     border-radius: 10px;
+    background-color: #fdc66e;
+    color: white;
+}
+.completeItem{
     background-color: #fdc66e;
     color: white;
 }

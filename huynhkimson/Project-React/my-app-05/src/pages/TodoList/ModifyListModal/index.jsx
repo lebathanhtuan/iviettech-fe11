@@ -27,10 +27,10 @@ function ModifyListModal(props) {
                     validationSchema={Yup.object({
                         title: Yup.string()
                             .required('Mời bạn nhập nội dung công việc.')
-                            .max(50, 'Nội dung công việc không được quá 50 kí tự.'),
+                            .max(40, 'Nội dung công việc không được quá 40 kí tự.'),
                         description: Yup.string()
                             .required('Mời bạn nhập mô tả công việc.')
-                            .max(100, 'Nội dung công việc không được quá 100 kí tự.')
+                            .max(80, 'Nội dung công việc không được quá 80 kí tự.')
                     })}
                     onSubmit={(values) => handleSubmitForm(values, modalData.type, modalData.id)}>
                     <Form>

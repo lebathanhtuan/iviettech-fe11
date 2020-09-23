@@ -1,12 +1,15 @@
 import {
     GET_TASK_LIST_SUCCESS,
+    GET_COMPLETE_LIST_SUCCESS,
     CREATE_TASK_SUCCESS,
     EDIT_TASK_SUCCESS,
     DELETE_TASK_SUCCESS,
+    ADD_TASK_TO_COMPLETE_LIST_SUCCESS,
+    DELETE_TASK_FROM_TODOLIST_SUCCESS,
 } from '../constants/index';
 const initialState = {
-    todoListData: [
-    ],
+    todoListData: [],
+    completedListData: [],
 };
 
 function todoListReducer(state = initialState, action) {
@@ -15,6 +18,14 @@ function todoListReducer(state = initialState, action) {
             return {
                 ...state,
                 todoListData: [
+                    ...action.payload,
+                ],
+            }
+        }
+        case GET_COMPLETE_LIST_SUCCESS: {
+            return {
+                ...state,
+                completedListData: [
                     ...action.payload,
                 ],
             }
@@ -50,6 +61,27 @@ function todoListReducer(state = initialState, action) {
             const newTodoListData = state.todoListData;
             const taskIndex = state.todoListData.findIndex((item) => item.id === id);
             newTodoListData.splice(taskIndex, 1)
+            return {
+                ...state,
+                todoListData: [
+                    ...newTodoListData,
+                ],
+            }
+        }
+        case ADD_TASK_TO_COMPLETE_LIST_SUCCESS: {
+            return {
+                ...state,
+                completedListData: [
+                    ...state.completedListData,
+                    action.payload,
+                ],
+            }
+        }
+        case DELETE_TASK_FROM_TODOLIST_SUCCESS: {
+            const { id } = action.payload;
+            const newTodoListData = state.todoListData;
+            const taskIndex = state.todoListData.findIndex((item) => item.id === id);
+            newTodoListData.splice(taskIndex, 1);
             return {
                 ...state,
                 todoListData: [

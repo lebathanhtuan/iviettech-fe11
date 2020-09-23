@@ -10,7 +10,7 @@ import {
 function* getProductListSaga(action) {
     try {
         const { page, limit } = action.payload;
-        const response = yield axios.get(`http://localhost:3001/products?_page=${page}_limit=${limit}`);
+        const response = yield axios.get(`http://localhost:3001/productList?_page=${page}_limit=${limit}`);
         const data = response.data;
         yield put({
             type: GET_PRODUCT_LIST_SUCCESS,

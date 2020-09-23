@@ -17,11 +17,11 @@ function Products(props) {
     const renderProductList = () => {
         return productList.map((product, productIndex) => (
             <li
-                key={`product-${product.id}-${productIndex}`}
+                key={`sanpham-${product.id}-${productIndex}`}
                 className="list-group-item d-flex align-items-center justify-content-between"
             >
-                <div>{product.name}</div>
-                <button className="btn btn-outline-primary" onClick={() => history.push(`/product/${product.id}`)}>
+                <div><p>{product.name}</p></div>
+                <button className="btn btn-outline-primary" onClick={() => history.push(`/sanpham/${product.id}`)}>
                     Chi tiết
         </button>
             </li>

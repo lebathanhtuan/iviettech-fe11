@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Button, ListGroup } from 'react-bootstrap'
+import { Button, ListGroup, Form } from 'react-bootstrap'
 
 import ModifyListModal from './ModifyListModal/index'
 import DeleteConfirmModal from './DeleteConfirmModal/index'
@@ -7,23 +7,33 @@ import { connect } from 'react-redux';
 
 import {
     getTaskList,
+    getCompleteList,
     createTask,
     editTask,
-    deleteTask
+    deleteTask,
+    addCompleteTask,
+    deleteCompleteTask,
+
 } from '../../redux/actions/todoList.action'
 import './style.css';
 
 function TodoList({
     getTaskList,
+    getCompleteList,
     todoListData,
+    completedListData,
     createTask,
     editTask,
     deleteTask,
+    addCompleteTask,
+    deleteCompleteTask,
+
 }) {
     const inputElement = useRef(null);
 
     useEffect(() => {
         getTaskList();
+        getCompleteList();
         inputElement.current.focus();
     }, []);
 
@@ -33,10 +43,12 @@ function TodoList({
     const [isShowConfirmModal, setIsShowConfirmModal] = useState(false);
     const [confirmModalData, setConfirmModalData] = useState({});
     const [isShowMore, setIsShowMore] = useState(false);
+    const [isShowMoreComplete, setIsShowMoreComplete] = useState(false);
     const [moreInfoList, setMoreInfoList] = useState([]);
 
     // Check chạy all phần tử trong mảng cũ if true thì đẩy item vào mảng mới 
     // tạo ra mảng mới để check hiển thị thêm
+    // check !== -1 hoặc < 0 được hiểu không có phần tử đó 
     const filterTodoListData = todoListData.filter((item) => {
         return ((item.title.toLowerCase()).indexOf(searchKey.toLowerCase()) !== -1)
     });
@@ -120,6 +132,49 @@ function TodoList({
         }
     }
 
+    const handlCompleteTask = (e, values ) => {
+        e.preventDefault();
+        const { checked } = e.target;
+        if (checked) {
+            deleteCompleteTask({
+                id: values.id,
+                title: values.title,
+                description: values.description,
+            });
+            addCompleteTask({
+                title: values.title,
+                description: values.description,
+            })
+        }
+    }
+
+    // const handlUnCompleteTask = (e, unCompleteItem) => {
+    //     e.preventDefault();
+    //     const { checked } = e.target;
+    //     console.log("handlUnCompleteTask -> checked", checked)
+    //     if (checked) {
+    //         unCompleteTask({ unCompleteItem });
+    //     }
+    // }
+
+    const renderCompleteTaskList = () => {
+        return completedListData.map((item, itemIndex) => {
+            if (!isShowMoreComplete && itemIndex > 3) {
+                return null;
+            }
+            return (
+                <ListGroup.Item
+                    key={itemIndex}
+                    className="d-flex completeItem">
+                    <Form.Check type="checkbox"
+                    // onChange={(e) => handlUnCompleteTask(e, item)}
+                    />
+                    <p className="ml-2"><del>{item.title}</del></p>
+                </ListGroup.Item>
+            );
+        });
+    }
+
     const renderItemList = () => {
         return filterTodoListData.map((item, itemIndex) => {
             if (!isShowMore && itemIndex > 3) {
@@ -129,12 +184,15 @@ function TodoList({
                 <ListGroup.Item
                     key={itemIndex}>
                     <div className="todo-item-container">
-                        <p>{item.title}</p>
+                        <div className="d-flex item">
+                            <Form.Check type="checkbox" onChange={(e) => handlCompleteTask(e, item)} />
+                            <p className="ml-2">{item.title}</p>
+                        </div>
                         <div className="todo-item-action">
                             <Button
                                 variant="success btnShowMoreInfo"
                                 onClick={() => {
-                                    if (filterTodoListData.length === 1) {
+                                    if (filterTodoListData.length === 0) {
                                         return null;
                                     }
                                     else {
@@ -146,25 +204,25 @@ function TodoList({
                             <Button
                                 variant="warning btnEdit ml-3"
                                 onClick={() => {
-                                    if (filterTodoListData.length === 1) {
+                                    if (filterTodoListData.length === 0) {
                                         return null;
                                     }
                                     else {
-                                        handleShowModifyModal('edit',item)
+                                        handleShowModifyModal('edit', item)
                                     }
                                 }}>
-                                Edit</Button>
+                                Sửa</Button>
                             <Button
                                 variant="danger btnDelete ml-3"
                                 onClick={() => {
-                                    if (filterTodoListData.length === 1) {
+                                    if (filterTodoListData.length === 0) {
                                         return null;
                                     }
                                     else {
                                         handleShowConfirmModal(item.id);
                                     }
                                 }}>
-                                Delete</Button>
+                                Xóa</Button>
                         </div>
                     </div>
                     {(moreInfoList.findIndex((id) => id === item.id) !== -1) && (
@@ -190,8 +248,8 @@ function TodoList({
                             placeholder="Search"
                             onChange={(e) => handlChangeSearch(e)}
                         />
-                        <Button variant="primary btnAdd mr-3" onClick={() => { handleShowModifyModal('create') }}>
-                            Add
+                        <Button variant="primary btnAdd ml-3" onClick={() => { handleShowModifyModal('create') }}>
+                            Thêm
                         </Button>
                     </div>
                     <div className="mt-2">
@@ -204,6 +262,21 @@ function TodoList({
                                     variant="info btnAdd mr-3"
                                     className="rounded-pill"
                                     onClick={() => setIsShowMore(true)}>
+                                    More </Button>
+                            </div>
+                        )}
+                    </div>
+                    <div className="mt-4">
+                        <h5>Công việc đã hoàn thành</h5>
+                        <ListGroup>
+                            {renderCompleteTaskList()}
+                        </ListGroup>
+                        {(!isShowMoreComplete && completedListData.length > 3) && (
+                            <div className="d-flex justify-content-center mt-2">
+                                <Button
+                                    variant="info btnAdd mr-3"
+                                    className="rounded-pill"
+                                    onClick={() => setIsShowMoreComplete(true)}>
                                     More </Button>
                             </div>
                         )}
@@ -227,9 +300,10 @@ function TodoList({
 }
 // store ( state tổng )
 const mapStateToProps = (state) => {
-    const { todoListData } = state.todoListReducer;
+    const { todoListData, completedListData } = state.todoListReducer;
     return {
         todoListData,
+        completedListData,
     }
 };
 
@@ -237,9 +311,12 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
     return {
         getTaskList: (params) => dispatch(getTaskList(params)),
+        getCompleteList: (params) => dispatch(getCompleteList(params)),
         createTask: (params) => dispatch(createTask(params)),
         editTask: (params) => dispatch(editTask(params)),
         deleteTask: (params) => dispatch(deleteTask(params)),
+        addCompleteTask: (params) => dispatch(addCompleteTask(params)),
+        deleteCompleteTask: (params) => dispatch(deleteCompleteTask(params)),
     };
 }
 
