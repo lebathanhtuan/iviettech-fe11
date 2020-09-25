@@ -1,0 +1,42 @@
+.form-login{
+    position: relative;
+    top: 40px;
+    min-height: 500px;
+    width: 450px;
+    margin: 0 auto;
+    padding: 20px;
+    border-radius: 30px;
+    background-color: white;
+    box-shadow: 15px 15px 15px 5px black;
+}
+.title-form-login{
+    height: 50px;
+    margin-bottom: 20px;
+    padding: 6px;
+    border-radius: 500px 50px 500px 50px;
+    background-color: 	#93b4d9;
+    color: white;
+    letter-spacing: 2.5px;
+    text-align: center;
+}
+.content-form-login{
+    align-content: center;
+    width: 300px;
+    margin: 0 auto;
+}
+.inpEmail-login, .inpPass-login{
+    width: 350px;
+    border-radius: 25px;
+}
+.btnSubmit, .btnRegister{
+    width: 350px;
+    border-radius: 20px;
+    border: none;
+    background-color:#93b4d9;
+}
+.forgot-pass{
+    text-align: center;
+}
+.forgot-pass p{
+    color: black;
+}

@@ -1,12 +1,47 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
+import { Router, Switch } from 'react-router-dom';
+import { createStore, applyMiddleware } from 'redux';
+import { Provider } from 'react-redux';
+import logger from 'redux-logger'
+
+import DefaultLayout from './layout/DefaultLayout';
+import LoginLayout from './layout/LoginLayout';
+import SignUpLayout from './layout/SignUpLayout';
+
+import Home from './pages/Home/index';
+import Products from './pages/Products/index';
+import ProductDetail from './pages/Products/ProductDetail/index';
+import TodoList from './pages/TodoList/index';
+import Login from './pages/Login/index';
+import SignUp from './pages/SignUp/index';
+
+import myReducer from './redux/reducers/index';
+
+import history from './util/history'
+
 import * as serviceWorker from './serviceWorker';
+import './index.css';
+const myStore = createStore( myReducer, applyMiddleware(logger));
+
+console.log('Log: myStore', myStore.getState());
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Provider store={myStore} >
+      <Router history={history} >
+        <Switch>
+          <LoginLayout exact path="/login" component={Login} />
+          <SignUpLayout exact path="/signup" component={SignUp} />
+
+          <DefaultLayout exact path="/" component={Home} />
+          <DefaultLayout exact path="/sanpham" component={Products} />
+          <DefaultLayout exact path="/sanpham/:id" component={ProductDetail} />
+          <DefaultLayout exact path="/todolist" component={TodoList} />
+
+        </Switch>
+      </Router>
+    </Provider >
   </React.StrictMode>,
   document.getElementById('root')
 );
