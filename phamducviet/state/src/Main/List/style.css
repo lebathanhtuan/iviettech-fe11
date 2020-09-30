@@ -1,0 +1,29 @@
+.list{
+    
+    
+    width: calc(100% - 300px);
+
+    
+}
+.list h2{
+    padding-left: 40px;
+    display: block;
+    
+}
+
+
+.groups{
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0;
+   justify-content: space-around;
+}
+.item{
+    border: 1px solid #ccc;
+    width: calc(100%/4);
+    opacity: 0.5;
+}
+.item-active{
+    border: 1px solid red;
+    opacity: 1;
+}
