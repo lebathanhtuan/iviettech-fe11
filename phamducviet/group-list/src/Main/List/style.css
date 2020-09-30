@@ -1,0 +1,26 @@
+.list{
+    
+    
+    width: calc(100% - 300px);
+
+    
+}
+.list h2{
+    padding-left: 40px;
+    display: block;
+    
+}
+
+
+.list div{
+    
+   justify-content: space-around;
+}
+.item{
+    border: 1px solid #ccc;
+    width: calc(100%/4);
+
+}
+.item-active{
+    border: 1px solid red;
+}
