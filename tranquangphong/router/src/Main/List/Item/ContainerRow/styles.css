@@ -1,0 +1,16 @@
+.container-row-item {
+  display: flex;
+  justify-content: space-between;
+}
+
+.child-item {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+.child-item-title {
+  margin: 0;
+  text-align: center;
+  color: #FFF;
+}
