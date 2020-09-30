@@ -46,7 +46,7 @@ function SignUp(props) {
                     <input
                         name="email"
                         type="email"
-                        className={`form-control ${errors.email.length > 0 ? 'border-danger' : ''}`}
+                        className={`form-control ${errors.email.length !== 0 ? 'border-danger' : ''}`}
                         id="email"
                         placeholder="Email"
                         onChange={(e) => handleChangeValue(e)} />
@@ -57,7 +57,7 @@ function SignUp(props) {
                     <input
                         name="password"
                         type="password"
-                        className={`form-control ${errors.password.length > 0 ? 'border-danger' : ''}`}
+                        className={`form-control ${errors.password.length !== 0 ? 'border-danger' : ''}`}
                         id="password"
                         placeholder="Password"
                         onChange={(e) => handleChangeValue(e)} />
@@ -68,7 +68,7 @@ function SignUp(props) {
                     <input
                         name="address"
                         type="text"
-                        className={`form-control ${errors.address.length > 0 ? 'border-danger' : ''}`}
+                        className={`form-control ${errors.address.length !== 0 ? 'border-danger' : ''}`}
                         id="address"
                         placeholder="Address"
                         onChange={(e) => handleChangeValue(e)} />
@@ -143,7 +143,7 @@ function SignUp(props) {
                 type="button"
                 className="btn btn-primary"
                 onClick={() => checkValidate(formValue)}
-            >Sign in
+            >Sign Up
             </button>
         </form>
     );

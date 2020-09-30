@@ -1,0 +1,76 @@
+@import url('https://fonts.googleapis.com/css?family=Architects+Daughter&display=swap');
+
+body {
+    background-color: #FFEAA7;
+    font-family: "Architects Daughter", sans-serif;
+}
+.todo-list-container{
+    display: flex;
+    justify-content: center;
+    width: 80%;
+    min-height: 80vh;
+    margin: 50px auto;
+    padding: 16px;
+    background-color: #f1f5f8;
+    background-image: radial-gradient(#bfc0c1 7.2%, transparent 0);
+    background-size: 40px 40px;
+    border-radius: 20px;
+    box-shadow: 4px 3px 7px 2px #00000040;
+}
+.todo-list-content h4 {
+    text-align: center;
+    height: 60px;
+    width: 40%;
+    margin-top: 30px;
+    padding: 6px 0;
+    border-radius: 10px;
+    border-radius: 20% 5% 20% 5%/5% 20% 25% 20%;
+    background-color: #fdc66e;
+    font-size: 40px ;
+    color: #494a4b;
+}
+.list-group-item{
+    min-width: 900px;
+    margin-top: 10px;
+    border: 0;
+    border-bottom: 3px dashed #fdcb6e;
+    background-color: transparent;
+    font-family: "Architects Daughter", sans-serif;
+    font-size: 150%;
+    padding: 10px 15px;
+    color: #494a4b;
+}
+.todo-list-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px
+}
+.todo-list-container button {
+    width: 85px;
+    border: 3px solid hsl(198, 1%, 29%);
+    border-radius: 8px;
+    padding: 10px 15px;
+    font-family: "Architects Daughter", sans-serif;
+}
+.todo-item-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.todo-item-container p {
+    margin: 10px 0 0 0 ;
+}
+.inputSearch {
+    width: 500px;
+    border: 1px white;
+    border-radius: 10px;
+    padding: 24px
+}
+.todo-item-description {
+    margin-top: 8px;
+    padding: 8px;
+    border-radius: 10px;
+    background-color: #fdc66e;
+    color: white;
+}

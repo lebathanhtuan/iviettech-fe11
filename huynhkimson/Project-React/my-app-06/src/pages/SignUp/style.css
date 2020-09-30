@@ -1,0 +1,47 @@
+.form-register{
+    min-height: 600px;
+    width: 500px;
+    margin: 0 auto;
+    padding: 20px;
+    border-radius: 30px;
+    background-color: white;
+    box-shadow: 15px 15px 15px 5px black;
+}
+.title-form-signup{
+    height: 50px;
+    margin-bottom: 20px;
+    padding: 6px;
+    border-radius: 500px 50px 500px 50px;
+    background-color: 	#93b4d9;
+    color: white;
+    letter-spacing: 2.5px;
+    text-align: center;
+}
+.content-form-signup{
+    align-content: center;
+    width: 370px;
+    margin: 0 auto;
+}
+.inpSignUp{
+    width: 400px;
+    border-radius: 25px;
+}
+.inpSignUp-firstname, .inpSignUp-phone {
+    width: 240px;
+    border-radius: 20px;
+}
+.inpSignUp-lastname, .inpSignUp-gender {
+    width: 150px;
+    margin-left: 10px;
+    border-radius: 20px;
+}
+.text-danger{
+    margin-left: 10px;
+}
+.btnLogin, .btnSignUp{
+    width: 400px;
+    border-radius: 20px;
+    border: none;
+    background-color:#93b4d9;
+}
+

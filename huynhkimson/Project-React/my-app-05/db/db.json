@@ -1,0 +1,66 @@
+{
+  "productList": [
+    {
+      "id": 1,
+      "name": "iPhone 12"
+    },
+    {
+      "id": 2,
+      "name": "Galaxy Note 10"
+    }
+  ],
+  "todoListData": [
+    {
+      "title": "6",
+      "description": "6",
+      "id": 6
+    },
+    {
+      "title": "7",
+      "description": "7",
+      "id": 7
+    },
+    {
+      "title": "8",
+      "description": "8",
+      "id": 8
+    },
+    {
+      "title": "9",
+      "description": "9",
+      "id": 9
+    },
+    {
+      "title": "10",
+      "description": "10",
+      "id": 10
+    }
+  ],
+  "completedListData": [
+    {
+      "title": "1",
+      "description": "1",
+      "id": 1
+    },
+    {
+      "title": "2",
+      "description": "2",
+      "id": 2
+    },
+    {
+      "title": "3",
+      "description": "3",
+      "id": 3
+    },
+    {
+      "title": "4",
+      "description": "4",
+      "id": 4
+    },
+    {
+      "title": "5",
+      "description": "5",
+      "id": 5
+    }
+  ]
+}
