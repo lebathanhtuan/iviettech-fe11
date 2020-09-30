@@ -1,0 +1,14 @@
+.content{
+    width: 80%;
+    margin: 0 auto;
+    color: aliceblue;
+}
+.info{
+    color: white;
+}
+.title{
+    font-style: italic;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: white;
+    font-size: large;
+}
